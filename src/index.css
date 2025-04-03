@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,47 +38,32 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -96,6 +84,134 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-cyber-dark text-white overflow-x-hidden font-['Quicksand',sans-serif];
+    background-image: radial-gradient(circle at 50% 50%, #1a1a3a 0%, #0a0a1a 100%);
+  }
+
+  h1 {
+    @apply font-['Dancing_Script',cursive] text-5xl md:text-6xl animate-shine bg-clip-text text-transparent bg-gradient-to-r from-[#f9c5ff] via-[#c5f9ff] to-[#f9c5ff] bg-[length:400%_100%];
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+  }
+
+  .holo-title {
+    @apply font-['Dancing_Script',cursive] text-3xl text-white;
+    text-shadow: 0 0 5px rgba(150, 230, 255, 0.7);
+  }
+}
+
+@layer components {
+  .holo-container {
+    @apply relative min-h-screen p-0 m-0 overflow-hidden;
+    perspective: 1000px;
+  }
+
+  .glitter-overlay {
+    @apply fixed top-0 left-0 w-full h-full pointer-events-none animate-twinkle opacity-40;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white" opacity="0.8"/><circle cx="20" cy="25" r="0.5" fill="white" opacity="0.9"/><circle cx="35" cy="12" r="0.8" fill="white" opacity="0.7"/><circle cx="50" cy="30" r="0.6" fill="white" opacity="0.8"/><circle cx="70" cy="15" r="0.7" fill="white" opacity="0.9"/><circle cx="85" cy="35" r="0.5" fill="white" opacity="0.7"/><circle cx="15" cy="45" r="0.6" fill="white" opacity="0.8"/><circle cx="30" cy="65" r="0.7" fill="white" opacity="0.7"/><circle cx="55" cy="50" r="0.5" fill="white" opacity="0.9"/><circle cx="75" cy="70" r="0.8" fill="white" opacity="0.8"/><circle cx="90" cy="45" r="0.6" fill="white" opacity="0.7"/><circle cx="25" cy="85" r="0.7" fill="white" opacity="0.9"/><circle cx="50" cy="90" r="0.5" fill="white" opacity="0.8"/><circle cx="70" cy="80" r="0.8" fill="white" opacity="0.7"/><circle cx="85" cy="95" r="0.6" fill="white" opacity="0.9"/></svg>');
+  }
+
+  .header {
+    @apply text-center p-12 pb-8 relative overflow-hidden;
+  }
+
+  .header::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full opacity-40 animate-gradient-shift -z-10;
+    background: linear-gradient(45deg, #ff359b, #0099ff, #00ccff, #d400d4);
+    transform: translateZ(-10px);
+    filter: blur(8px);
+  }
+
+  .subtitle {
+    @apply text-base md:text-xl mt-2 font-light tracking-widest text-white/90;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  }
+
+  .holo-card {
+    @apply bg-white/5 backdrop-blur-md rounded-xl p-8 mb-8 shadow-xl border border-white/20 relative overflow-hidden transform-gpu transition-transform duration-300 ease-in-out;
+    transform-style: preserve-3d;
+  }
+
+  .holo-card::before {
+    content: '';
+    @apply absolute top-[-50%] left-[-50%] w-[200%] h-[200%] animate-holographic-sweep pointer-events-none;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+  }
+
+  .holo-card:hover {
+    @apply -translate-y-1;
+    transform: translateY(-5px) rotateX(5deg);
+  }
+
+  .countdown-item {
+    @apply w-28 h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-xl flex flex-col justify-center items-center shadow-xl border border-white/20 relative overflow-hidden;
+    transform-style: preserve-3d;
+  }
+
+  .countdown-item::before {
+    content: '';
+    @apply absolute w-[150%] h-[150%] top-[-25%] left-[-25%] animate-pulse;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  }
+
+  .countdown-value {
+    @apply text-4xl font-bold leading-none bg-gradient-to-b from-white to-holo-blue bg-clip-text text-transparent;
+    text-shadow: 0 0 10px rgba(197, 249, 255, 0.5);
+  }
+
+  .countdown-label {
+    @apply text-sm uppercase mt-2 tracking-wide opacity-80;
+  }
+
+  .holo-btn {
+    @apply inline-block bg-gradient-to-r from-holo-pink to-cyber-blue text-white py-3 px-6 rounded-full font-bold transition-all duration-300 mt-4 border-none cursor-pointer shadow-lg uppercase tracking-wide text-sm relative overflow-hidden;
+    box-shadow: 0 5px 15px rgba(0, 153, 255, 0.4), 0 0 10px rgba(255, 53, 155, 0.2);
+  }
+
+  .holo-btn::before {
+    content: '';
+    @apply absolute top-[-50%] left-[-50%] w-[200%] h-[200%] animate-btn-holographic pointer-events-none;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+  }
+
+  .holo-btn:hover {
+    @apply bg-gradient-to-r from-holo-pink via-cyber-blue to-cyber-light -translate-y-1;
+    box-shadow: 0 8px 25px rgba(0, 153, 255, 0.5), 0 0 15px rgba(255, 53, 155, 0.3);
+  }
+
+  .workshop-title {
+    @apply text-white border-b-2 border-white/20 pb-2 mb-4 font-light tracking-wide text-xl;
+    text-shadow: 0 0 5px rgba(150, 230, 255, 0.7);
+  }
+
+  .workshop-highlight {
+    @apply bg-[rgba(150,230,255,0.1)] border-l-4 border-[rgba(150,230,255,0.5)] p-4 my-4 backdrop-blur-sm;
+  }
+
+  @media (max-width: 768px) {
+    .countdown-item {
+      @apply w-20 h-24;
+    }
+    
+    .countdown-value {
+      @apply text-3xl;
+    }
+    
+    .countdown-label {
+      @apply text-xs;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .countdown-item {
+      @apply w-16 h-20;
+    }
+    
+    .countdown-value {
+      @apply text-2xl;
+    }
   }
 }
