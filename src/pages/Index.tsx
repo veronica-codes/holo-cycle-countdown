@@ -41,12 +41,6 @@ const Index = () => {
             <p className="my-4">These workshops are perfect for riders who want to gain independence and confidence in their off-road adventures.</p>
           </WorkshopCard>
         </HolographicCard>
-
-        <div className="mt-12 mb-20 text-center">
-          <h3 className="holo-title text-3xl mb-4">Get Ready for the Ride!</h3>
-          <p className="text-white/90 mb-2">Join us for an exciting three-day cycling event filled with challenges, community, and fun.</p>
-          <p className="text-white/90">Mark your calendar for June 6-8, 2025 and prepare for an unforgettable cycling experience!</p>
-        </div>
       </div>
     </div>
   );
