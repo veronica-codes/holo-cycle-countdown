@@ -1,12 +1,15 @@
+
 import React, { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Wrench } from 'lucide-react';
+
 const BicycleTool = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAdjusting, setIsAdjusting] = useState(false);
   const {
     toast
   } = useToast();
+
   const toggleTool = () => {
     // If currently adjusting, don't allow toggling
     if (isAdjusting) return;
@@ -36,6 +39,7 @@ const BicycleTool = () => {
       });
     }
   };
+
   return <div className="flex justify-center mt-8 mb-8 mx-[10px]">
       <div className={`relative rounded-lg p-3 shadow-xl transition-all duration-300 hover:shadow-2xl ${isAdjusting ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`} onClick={toggleTool} style={{
       maxWidth: '320px'
@@ -62,10 +66,13 @@ const BicycleTool = () => {
             {/* Enlarged plastic base that connects to the tools */}
             <div className="absolute inset-x-0 bottom-4 w-full">
               {/* Connector ring around the base when tools are open */}
+              <div className={`absolute left-1/2 bottom-6 transform -translate-x-1/2 w-40 h-40 rounded-full border-2 border-zinc-500 transition-opacity duration-300 ${isOpen ? 'opacity-30' : 'opacity-0'}`}></div>
               
               
               {/* Enlarged plastic base that touches all tools */}
-              
+              <div className={`absolute left-1/2 bottom-6 transform -translate-x-1/2 w-20 h-20 bg-zinc-600 rounded-full transition-all duration-300 ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
+                <div className="absolute inset-2 rounded-full bg-zinc-700 border border-zinc-500"></div>
+              </div>
               
               {/* Tool 1 - 0 degrees (top) */}
               <div className={`absolute bottom-6 left-1/2 ml-[-1.5px] h-16 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
@@ -74,7 +81,7 @@ const BicycleTool = () => {
             }}>
                 <div className="h-6 w-5 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
                 {/* Connector to base */}
-                <div className="absolute bottom-[-3px] left-[-1px] w-5 h-2 bg-zinc-600 rounded-b-sm"></div>
+                <div className="absolute bottom-[-3px] left-[-1px] w-5 h-4 bg-zinc-600 rounded-b-sm"></div>
               </div>
               
               {/* Tool 2 - 60 degrees */}
@@ -84,7 +91,7 @@ const BicycleTool = () => {
             }}>
                 <div className="h-6 w-6 bg-zinc-500 absolute -left-1 top-0 rounded-t-md"></div>
                 {/* Connector to base */}
-                <div className="absolute bottom-[-2px] left-[-1px] w-5 h-2 bg-zinc-600 rounded-b-sm transform rotate-[-30deg]"></div>
+                <div className="absolute bottom-[-3px] left-[-1px] w-5 h-4 bg-zinc-600 rounded-b-sm transform rotate-[-30deg]"></div>
               </div>
               
               {/* Tool 3 - 120 degrees */}
@@ -94,7 +101,7 @@ const BicycleTool = () => {
             }}>
                 <div className="h-5 w-8 bg-zinc-500 absolute -right-2 top-0 rounded-md"></div>
                 {/* Connector to base */}
-                <div className="absolute bottom-[-1px] left-[0px] w-5 h-2 bg-zinc-600 rounded-b-sm transform rotate-[-60deg]"></div>
+                <div className="absolute bottom-[-3px] left-[0px] w-5 h-4 bg-zinc-600 rounded-b-sm transform rotate-[-60deg]"></div>
               </div>
               
               {/* Tool 4 - 180 degrees */}
@@ -104,7 +111,7 @@ const BicycleTool = () => {
             }}>
                 <div className="h-6 w-5 bg-zinc-500 absolute -left-1 top-0 rounded-t-md"></div>
                 {/* Connector to base */}
-                <div className="absolute bottom-[0px] left-[0px] w-3 h-2 bg-zinc-600 rounded-b-sm transform rotate-[-90deg]"></div>
+                <div className="absolute bottom-[-3px] left-[0px] w-5 h-4 bg-zinc-600 rounded-b-sm transform rotate-[-90deg]"></div>
               </div>
               
               {/* Tool 5 - 240 degrees */}
@@ -114,7 +121,7 @@ const BicycleTool = () => {
             }}>
                 <div className="h-5 w-7 bg-zinc-500 absolute -right-2 top-0 rounded-md"></div>
                 {/* Connector to base */}
-                <div className="absolute bottom-[0px] left-[0px] w-5 h-2 bg-zinc-600 rounded-b-sm transform rotate-[-120deg]"></div>
+                <div className="absolute bottom-[-3px] left-[0px] w-5 h-4 bg-zinc-600 rounded-b-sm transform rotate-[-120deg]"></div>
               </div>
               
               {/* Tool 6 - 300 degrees */}
@@ -124,7 +131,7 @@ const BicycleTool = () => {
             }}>
                 <div className="h-6 w-6 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
                 {/* Connector to base */}
-                <div className="absolute bottom-[-2px] right-[-1px] w-5 h-2 bg-zinc-600 rounded-b-sm transform rotate-[30deg]"></div>
+                <div className="absolute bottom-[-3px] right-[-1px] w-5 h-4 bg-zinc-600 rounded-b-sm transform rotate-[30deg]"></div>
               </div>
               
               {/* Tool 7 - 240 degrees */}
@@ -134,7 +141,7 @@ const BicycleTool = () => {
             }}>
                 <div className="h-5 w-8 bg-zinc-500 absolute -left-2 top-0 rounded-md"></div>
                 {/* Connector to base */}
-                <div className="absolute bottom-[-1px] right-[0px] w-5 h-2 bg-zinc-600 rounded-b-sm transform rotate-[60deg]"></div>
+                <div className="absolute bottom-[-3px] right-[0px] w-5 h-4 bg-zinc-600 rounded-b-sm transform rotate-[60deg]"></div>
               </div>
               
               {/* Tool 8 - 180 degrees */}
@@ -144,14 +151,24 @@ const BicycleTool = () => {
             }}>
                 <div className="h-6 w-5 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
                 {/* Connector to base */}
-                <div className="absolute bottom-[0px] right-[0px] w-3 h-2 bg-zinc-600 rounded-b-sm transform rotate-[90deg]"></div>
+                <div className="absolute bottom-[-3px] right-[0px] w-5 h-4 bg-zinc-600 rounded-b-sm transform rotate-[90deg]"></div>
               </div>
               
               {/* Base attachment points - only visible when tools are open */}
-              
+              <div className={`absolute left-1/2 bottom-6 w-20 h-20 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+                {/* Attachment points around the circle - one for each tool */}
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-zinc-500 rounded-full border border-zinc-400"></div>
+                <div className="absolute top-[4px] right-[4px] transform rotate-30 w-3 h-3 bg-zinc-500 rounded-full border border-zinc-400"></div>
+                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-zinc-500 rounded-full border border-zinc-400"></div>
+                <div className="absolute bottom-[4px] right-[4px] transform rotate-60 w-3 h-3 bg-zinc-500 rounded-full border border-zinc-400"></div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-zinc-500 rounded-full border border-zinc-400"></div>
+                <div className="absolute bottom-[4px] left-[4px] transform rotate-120 w-3 h-3 bg-zinc-500 rounded-full border border-zinc-400"></div>
+                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-zinc-500 rounded-full border border-zinc-400"></div>
+                <div className="absolute top-[4px] left-[4px] transform rotate-150 w-3 h-3 bg-zinc-500 rounded-full border border-zinc-400"></div>
+              </div>
               
               {/* Tool cap/cover that hides in the base to create the illusion of tools emerging */}
-              
+              <div className={`absolute left-1/2 bottom-6 transform -translate-x-1/2 w-16 h-6 bg-zinc-600 rounded-full transition-all duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
             </div>
           </div>
         </div>
@@ -168,4 +185,5 @@ const BicycleTool = () => {
       </div>
     </div>;
 };
+
 export default BicycleTool;
