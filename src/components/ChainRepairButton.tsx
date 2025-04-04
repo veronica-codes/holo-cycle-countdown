@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Wrench, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 
@@ -51,20 +50,11 @@ const ChainRepairButton = () => {
         } ${isFixed ? 'bg-green-600 hover:bg-green-700' : ''}`}
       >
         {isRepairing ? (
-          <>
-            <Wrench className="mr-2 animate-spin" />
-            Fixing Chain...
-          </>
+          "Fixing Chain..."
         ) : isFixed ? (
-          <>
-            <Check className="mr-2" />
-            Chain Fixed!
-          </>
+          "Chain Fixed!"
         ) : (
-          <>
-            <Wrench className="mr-2" />
-            Fix Bike Chain
-          </>
+          "Fix Bike Chain"
         )}
         
         {isRepairing && (

@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Bike, Mountain } from 'lucide-react';
 
 const HolographicBicycles: React.FC = () => {
   return (
@@ -9,20 +8,28 @@ const HolographicBicycles: React.FC = () => {
       <div className="orbit-circle absolute rounded-full border border-stone-600/10 w-[400px] h-[400px] top-1/2 left-1/2 animate-rotate-medium"></div>
       <div className="orbit-circle absolute rounded-full border border-stone-600/10 w-[200px] h-[200px] top-1/2 left-1/2 animate-rotate-fast"></div>
       
-      <div className="absolute w-20 top-[20%] right-[10%] text-peak-green opacity-60 animate-float">
-        <Bike size={80} strokeWidth={1} />
+      <div className="absolute w-20 top-[20%] right-[10%] opacity-60 animate-float">
+        <div className="h-20 w-20 rounded-full bg-peak-green/20 flex items-center justify-center">
+          <span className="text-sm text-peak-green font-bold">CYCLE</span>
+        </div>
       </div>
       
-      <div className="absolute w-16 bottom-[30%] left-[15%] text-peak-grass opacity-60 animate-float-delay">
-        <Bike size={64} strokeWidth={1} />
+      <div className="absolute w-16 bottom-[30%] left-[15%] opacity-60 animate-float-delay">
+        <div className="h-16 w-16 rounded-full bg-peak-grass/20 flex items-center justify-center">
+          <span className="text-xs text-peak-grass font-bold">BIKE</span>
+        </div>
       </div>
       
-      <div className="absolute w-24 bottom-[10%] right-[25%] text-stone-400 opacity-40 animate-float">
-        <Mountain size={96} strokeWidth={1} />
+      <div className="absolute w-24 bottom-[10%] right-[25%] opacity-40 animate-float">
+        <div className="h-24 w-24 bg-stone-400/10 rounded-md flex items-center justify-center">
+          <span className="text-stone-400 font-bold">HILL</span>
+        </div>
       </div>
       
-      <div className="absolute w-32 top-[15%] left-[25%] text-stone-500 opacity-30 animate-float-delay">
-        <Mountain size={128} strokeWidth={1} />
+      <div className="absolute w-32 top-[15%] left-[25%] opacity-30 animate-float-delay">
+        <div className="h-32 w-32 bg-stone-500/10 rounded-md flex items-center justify-center">
+          <span className="text-stone-500 font-bold">MOUNTAIN</span>
+        </div>
       </div>
     </div>
   );
