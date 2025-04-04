@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { Tool } from 'lucide-react';
+import { Wrench } from 'lucide-react';
 
 const BicycleTool = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -117,7 +117,7 @@ const BicycleTool = () => {
         
         {/* Logo and product name */}
         <div className="flex items-center justify-center mt-2">
-          <Tool className="h-4 w-4 text-zinc-400 mr-1" />
+          <Wrench className="h-4 w-4 text-zinc-400 mr-1" />
           <span className="text-xs font-bold text-zinc-300">BIKE MULTI-TOOL</span>
         </div>
         
