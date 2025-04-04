@@ -42,7 +42,7 @@ const BicycleTool = () => {
   return (
     <div className="flex justify-center mt-8 mb-8">
       <div 
-        className={`relative bg-zinc-900 rounded-lg p-3 shadow-xl transition-all duration-300 hover:shadow-2xl ${isAdjusting ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`}
+        className={`relative rounded-lg p-3 shadow-xl transition-all duration-300 hover:shadow-2xl ${isAdjusting ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`}
         onClick={toggleTool}
         style={{ maxWidth: '320px' }}
       >
