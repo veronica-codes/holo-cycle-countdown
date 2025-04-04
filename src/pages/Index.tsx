@@ -13,7 +13,6 @@ const Index = () => {
     <div className="holo-container">
       <div className="glitter-overlay"></div>
       <HolographicBicycles />
-      <BicycleTool />
       <ChainRepairButton />
 
       <div className="header">
@@ -25,6 +24,8 @@ const Index = () => {
         <div className="countdown-container p-8 backdrop-blur-sm bg-stone-800/30 border border-stone-600/30 rounded-xl shadow-lg mt-8">
           <CountdownTimer targetDate={eventDate} />
         </div>
+        
+        <BicycleTool />
       </div>
     </div>
   );
