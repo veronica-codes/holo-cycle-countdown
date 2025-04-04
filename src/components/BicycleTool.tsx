@@ -48,7 +48,7 @@ const BicycleTool = () => {
       >
         <div className="flex items-center justify-center">
           {/* Tool body */}
-          <div className="relative h-24 w-full overflow-hidden">
+          <div className="relative h-32 w-full overflow-visible">
             {/* Main tool body - oval with two circles */}
             <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-700 rounded-full flex items-center justify-between px-8 mx-6">
               {/* Left circle */}
