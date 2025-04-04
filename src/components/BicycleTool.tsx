@@ -64,6 +64,17 @@ const BicycleTool = () => {
             
             {/* Tools extending from the oval base */}
             <div className="absolute inset-x-0 bottom-4">
+              {/* Metal lines that are only visible when tool is open */}
+              {isOpen && (
+                <>
+                  {/* Metal line details */}
+                  <div className="absolute bottom-2 left-1/2 ml-[-40px] h-1 w-12 bg-zinc-400 rounded transform translate-y-[-8px] translate-x-[-12px] rotate-[-45deg]"></div>
+                  <div className="absolute bottom-2 left-1/2 ml-[40px] h-1 w-12 bg-zinc-400 rounded transform translate-y-[-8px] translate-x-[12px] rotate-[45deg]"></div>
+                  <div className="absolute bottom-2 left-1/2 ml-[-100px] h-1 w-12 bg-zinc-400 rounded transform translate-y-[-4px] rotate-[-25deg]"></div>
+                  <div className="absolute bottom-2 left-1/2 ml-[100px] h-1 w-12 bg-zinc-400 rounded transform translate-y-[-4px] rotate-[25deg]"></div>
+                </>
+              )}
+              
               {/* Top tools */}
               <div 
                 className={`absolute bottom-2 left-1/2 ml-[-40px] h-12 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-90deg]' : 'rotate-0'}`}
