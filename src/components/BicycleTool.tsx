@@ -9,7 +9,7 @@ const BicycleTool = () => {
   };
 
   return (
-    <div className="absolute bottom-8 right-8 sm:right-12 md:right-16 z-10">
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
       <div 
         className="bg-zinc-800 rounded-md p-2 cursor-pointer shadow-lg transition-all duration-300 hover:shadow-xl"
         onClick={toggleTool}
