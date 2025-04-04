@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -132,8 +131,8 @@ export default {
 					'100%': { transform: 'translate(-50%, -50%) rotate(360deg)' }
 				},
 				float: {
-					'0%': { transform: 'translateY(0) rotate(0deg)' },
-					'100%': { transform: 'translateY(-10px) rotate(5deg)' }
+					'0%': { transform: 'translateY(0)' },
+					'100%': { transform: 'translateY(-10px)' }
 				},
 				'btn-holographic': {
 					'0%': { transform: 'translateX(-100%) translateY(-100%) rotate(45deg)' },
