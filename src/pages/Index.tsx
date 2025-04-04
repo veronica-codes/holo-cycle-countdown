@@ -1,22 +1,18 @@
-
 import React from 'react';
 import CountdownTimer from '../components/CountdownTimer';
 import HolographicBicycles from '../components/HolographicBicycles';
 import BicycleTool from '../components/BicycleTool';
 import ChainRepairButton from '../components/ChainRepairButton';
-
 const Index = () => {
   // Set the event date to June, 6 2025
   const eventDate = new Date("June 6, 2025 00:00:00");
-
-  return (
-    <div className="holo-container">
+  return <div className="holo-container">
       <div className="glitter-overlay"></div>
       <HolographicBicycles />
       <ChainRepairButton />
 
       <div className="header">
-        <h1>Cycling Event</h1>
+        <h1 className="font-medium text-5xl">Bike of 2025</h1>
         <div className="subtitle">JUNE 6-8, 2025</div>
       </div>
 
@@ -27,8 +23,6 @@ const Index = () => {
         
         <BicycleTool />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
