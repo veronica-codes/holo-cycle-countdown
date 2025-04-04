@@ -73,6 +73,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				peak: {
+					green: '#8fa56d',
+					grass: '#5a7241',
+					stone: '#8A898C',
+					gravel: '#C8C8C9',
+					rock: '#403E43',
+					soil: '#3c3c2c'
 				}
 			},
 			borderRadius: {
@@ -99,8 +107,8 @@ export default {
 				},
 				twinkle: {
 					'0%': { opacity: '0.2' },
-					'50%': { opacity: '0.5' },
-					'100%': { opacity: '0.3' }
+					'50%': { opacity: '0.4' },
+					'100%': { opacity: '0.2' }
 				},
 				'gradient-shift': {
 					'0%': { backgroundPosition: '0% 50%' },
@@ -117,7 +125,7 @@ export default {
 				},
 				pulse: {
 					'0%': { opacity: '0.3' },
-					'100%': { opacity: '0.6' }
+					'100%': { opacity: '0.5' }
 				},
 				rotate: {
 					'0%': { transform: 'translate(-50%, -50%) rotate(0deg)' },
