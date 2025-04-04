@@ -49,8 +49,8 @@ const BicycleTool = () => {
         <div className="flex items-center justify-center">
           {/* Tool body */}
           <div className="relative h-32 w-full overflow-visible">
-            {/* Main tool body - oval-shaped with rounded ends */}
-            <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-700 rounded-full flex items-center justify-between px-4 mx-2">
+            {/* Main tool body - enlarged oval-shaped with rounded ends */}
+            <div className="absolute inset-x-0 bottom-0 h-14 bg-zinc-700 rounded-full flex items-center justify-between px-4 mx-0">
               {/* Border around the tool body to create the double-line effect */}
               <div className="absolute inset-x-2 inset-y-1 bg-zinc-800 rounded-full border border-zinc-600"></div>
               
@@ -65,17 +65,20 @@ const BicycleTool = () => {
               </div>
             </div>
             
-            {/* Tools extending in a circular pattern */}
-            <div className="absolute inset-x-0 bottom-4">
+            {/* Enlarged plastic base that connects to the tools */}
+            <div className="absolute inset-x-0 bottom-4 w-full">
               {/* Connector ring around the base when tools are open */}
               <div 
-                className={`absolute bottom-2.5 left-1/2 transform -translate-x-1/2 w-40 h-40 rounded-full border-2 border-zinc-500 transition-all duration-300 
+                className={`absolute bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-64 rounded-full border-2 border-zinc-500 transition-all duration-300 
                 ${isOpen ? 'opacity-40' : 'opacity-0 scale-0'}`}
               ></div>
               
+              {/* Enlarged plastic base that touches all tools */}
+              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-48 h-10 bg-zinc-700 rounded-full z-10"></div>
+              
               {/* Tool 1 - 0 degrees (top) */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-1.5px] h-16 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
+                className={`absolute bottom-6 left-1/2 ml-[-1.5px] h-16 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
                 ${isOpen ? 'translate-y-[-40px]' : 'translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '0ms' }}
               >
@@ -86,7 +89,7 @@ const BicycleTool = () => {
               
               {/* Tool 2 - 60 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[40px] h-14 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
+                className={`absolute bottom-6 left-1/2 ml-[40px] h-14 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
                 ${isOpen ? 'rotate-[30deg] translate-y-[-35px] translate-x-[10px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '50ms' }}
               >
@@ -97,7 +100,7 @@ const BicycleTool = () => {
               
               {/* Tool 3 - 120 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
+                className={`absolute bottom-6 left-1/2 ml-[70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
                 ${isOpen ? 'rotate-[60deg] translate-y-[-20px] translate-x-[20px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '100ms' }}
               >
@@ -108,7 +111,7 @@ const BicycleTool = () => {
               
               {/* Tool 4 - 180 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[80px] h-10 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
+                className={`absolute bottom-6 left-1/2 ml-[80px] h-10 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
                 ${isOpen ? 'rotate-[90deg] translate-x-[15px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '150ms' }}
               >
@@ -119,7 +122,7 @@ const BicycleTool = () => {
               
               {/* Tool 5 - 240 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
+                className={`absolute bottom-6 left-1/2 ml-[70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
                 ${isOpen ? 'rotate-[120deg] translate-y-[20px] translate-x-[20px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '200ms' }}
               >
@@ -130,7 +133,7 @@ const BicycleTool = () => {
               
               {/* Tool 6 - 300 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-40px] h-14 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
+                className={`absolute bottom-6 left-1/2 ml-[-40px] h-14 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
                 ${isOpen ? 'rotate-[-30deg] translate-y-[-35px] translate-x-[-10px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '250ms' }}
               >
@@ -141,7 +144,7 @@ const BicycleTool = () => {
               
               {/* Tool 7 - 240 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
+                className={`absolute bottom-6 left-1/2 ml-[-70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
                 ${isOpen ? 'rotate-[-60deg] translate-y-[-20px] translate-x-[-20px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '300ms' }}
               >
@@ -152,7 +155,7 @@ const BicycleTool = () => {
               
               {/* Tool 8 - 180 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-80px] h-10 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
+                className={`absolute bottom-6 left-1/2 ml-[-80px] h-10 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 
                 ${isOpen ? 'rotate-[-90deg] translate-x-[-15px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '350ms' }}
               >
@@ -162,20 +165,21 @@ const BicycleTool = () => {
               </div>
               
               {/* Base attachment points - only visible when tools are open */}
-              <div className={`absolute bottom-2.5 left-1/2 transform -translate-x-1/2 w-36 h-9 rounded-full transition-all duration-500 flex justify-around items-center
+              <div className={`absolute bottom-6 left-1/2 transform -translate-x-1/2 w-48 h-9 rounded-full transition-all duration-500 flex justify-around items-center
                 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
                 {/* Small attachment points visible when tools are extended */}
                 <div className="w-2 h-2 bg-zinc-400 rounded-full transform -translate-y-1"></div>
                 <div className="w-2 h-2 bg-zinc-400 rounded-full transform translate-y-2 translate-x-3"></div>
                 <div className="w-2 h-2 bg-zinc-400 rounded-full transform translate-y-3 translate-x-5"></div>
                 <div className="w-2 h-2 bg-zinc-400 rounded-full transform translate-y-2 translate-x-10"></div>
+                <div className="w-2 h-2 bg-zinc-400 rounded-full transform translate-y-2"></div>
                 <div className="w-2 h-2 bg-zinc-400 rounded-full transform translate-y-3 translate-x-[-5]"></div>
                 <div className="w-2 h-2 bg-zinc-400 rounded-full transform translate-y-2 translate-x-[-3]"></div>
                 <div className="w-2 h-2 bg-zinc-400 rounded-full transform translate-y-2 translate-x-[-10]"></div>
               </div>
               
               {/* Tool cap/cover that hides in the base to create the illusion of tools emerging */}
-              <div className="absolute inset-x-0 bottom-2 h-4 bg-zinc-700 rounded-full z-20"></div>
+              <div className="absolute inset-x-0 bottom-2 h-6 bg-zinc-700 rounded-full z-20"></div>
             </div>
           </div>
         </div>
