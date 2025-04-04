@@ -2,6 +2,7 @@
 import React from 'react';
 import CountdownTimer from '../components/CountdownTimer';
 import HolographicBicycles from '../components/HolographicBicycles';
+import BicycleTool from '../components/BicycleTool';
 
 const Index = () => {
   // Set the event date to June, 6 2025
@@ -11,6 +12,7 @@ const Index = () => {
     <div className="holo-container">
       <div className="glitter-overlay"></div>
       <HolographicBicycles />
+      <BicycleTool />
 
       <div className="header">
         <h1>Cycling Event</h1>
