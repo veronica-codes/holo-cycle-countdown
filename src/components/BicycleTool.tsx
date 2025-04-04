@@ -77,43 +77,43 @@ const BicycleTool = () => {
               
               {/* Top tools - more hidden in closed state */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-40px] h-12 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-90deg]' : 'rotate-0 translate-y-8'}`}
+                className={`absolute bottom-2 left-1/2 ml-[-40px] h-12 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-90deg]' : 'rotate-0 translate-y-10'}`}
                 style={{ transitionDelay: '0ms' }}
               ></div>
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[40px] h-12 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-90deg' : 'rotate-0 translate-y-8'}`}
+                className={`absolute bottom-2 left-1/2 ml-[40px] h-12 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-90deg' : 'rotate-0 translate-y-10'}`}
                 style={{ transitionDelay: '50ms' }}
               ></div>
               
               {/* Left angled tools - more hidden in closed state */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-65px] h-10 w-3 bg-zinc-400 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-45deg]' : 'rotate-0 translate-y-6'}`}
+                className={`absolute bottom-2 left-1/2 ml-[-65px] h-10 w-3 bg-zinc-400 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-45deg]' : 'rotate-0 translate-y-9'}`}
                 style={{ transitionDelay: '100ms' }}
               ></div>
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-90px] h-8 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-20deg]' : 'rotate-0 translate-y-5'}`}
+                className={`absolute bottom-2 left-1/2 ml-[-90px] h-8 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-20deg]' : 'rotate-0 translate-y-9'}`}
                 style={{ transitionDelay: '150ms' }}
               ></div>
               
               {/* Right angled tools - more hidden in closed state */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[65px] h-10 w-3 bg-zinc-400 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-45deg' : 'rotate-0 translate-y-6'}`}
+                className={`absolute bottom-2 left-1/2 ml-[65px] h-10 w-3 bg-zinc-400 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-45deg' : 'rotate-0 translate-y-9'}`}
                 style={{ transitionDelay: '200ms' }}
               ></div>
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[90px] h-8 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-20deg' : 'rotate-0 translate-y-5'}`}
+                className={`absolute bottom-2 left-1/2 ml-[90px] h-8 w-3 bg-zinc-500 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-20deg' : 'rotate-0 translate-y-9'}`}
                 style={{ transitionDelay: '250ms' }}
               ></div>
               
               {/* Far left tool - more hidden in closed state */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-115px] h-6 w-8 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-10deg]' : 'rotate-0 translate-y-4'}`}
+                className={`absolute bottom-2 left-1/2 ml-[-115px] h-6 w-8 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-10deg]' : 'rotate-0 translate-y-9'}`}
                 style={{ transitionDelay: '300ms' }}
               ></div>
               
               {/* Far right tool - more hidden in closed state */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[115px] h-6 w-8 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-10deg' : 'rotate-0 translate-y-4'}`}
+                className={`absolute bottom-2 left-1/2 ml-[115px] h-6 w-8 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-10deg' : 'rotate-0 translate-y-9'}`}
                 style={{ transitionDelay: '350ms' }}
               ></div>
             </div>
