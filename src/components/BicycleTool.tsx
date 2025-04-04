@@ -37,12 +37,12 @@ const BicycleTool = () => {
     }
   };
   return <div className="flex justify-center mt-8 mb-8 mx-[10px]">
-      <div className={`relative rounded-lg p-3 shadow-xl transition-all duration-300 hover:shadow-2xl ${isAdjusting ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`} onClick={toggleTool} style={{
+      <div onClick={toggleTool} style={{
       maxWidth: '320px'
-    }}>
+    }} className="">
         <div className="flex items-center justify-center">
           {/* Tool body */}
-          <div className="relative h-32 w-full overflow-visible mx-0">
+          <div className="relative h-32 w-70 overflow-visible mx-0">
             {/* Main tool body - enlarged oval-shaped with rounded ends */}
             <div className="absolute inset-x-0 bottom-0 h-14 bg-zinc-700 rounded-full flex items-center justify-between py-[17px] my-[27px] mx-[4px] px-[22px]">
               {/* Border around the tool body to create the double-line effect */}
@@ -62,7 +62,7 @@ const BicycleTool = () => {
             {/* Enlarged plastic base that connects to the tools */}
             <div className="absolute inset-x-0 bottom-4 w-full">
               {/* Connector ring around the base when tools are open */}
-              <div className={`absolute left-1/2 bottom-6 transform -translate-x-1/2 w-40 h-40 rounded-full border-2 border-zinc-500 transition-opacity duration-300 ${isOpen ? 'opacity-30' : 'opacity-0'}`}></div>
+              
               
               
               {/* Enlarged plastic base that touches all tools */}
