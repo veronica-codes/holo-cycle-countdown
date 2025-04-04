@@ -1,17 +1,47 @@
 
 import React, { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 const BicycleTool = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAdjusting, setIsAdjusting] = useState(false);
+  const { toast } = useToast();
   
   const toggleTool = () => {
+    // If currently adjusting, don't allow toggling
+    if (isAdjusting) return;
+    
     setIsOpen(!isOpen);
+    
+    // Show appropriate toast notification
+    if (!isOpen) {
+      setIsAdjusting(true);
+      toast({
+        title: "Adjusting limit screws...",
+        description: "Fine-tuning the derailleur adjustment.",
+      });
+      
+      // Simulate adjustment completion after a delay
+      setTimeout(() => {
+        setIsAdjusting(false);
+        toast({
+          title: "Adjustment complete!",
+          description: "Your bicycle's shifting is now optimized.",
+          variant: "default",
+        });
+      }, 1500);
+    } else {
+      toast({
+        title: "Tools folded",
+        description: "Ready for your next adjustment.",
+      });
+    }
   };
 
   return (
     <div className="flex justify-center mt-8 mb-8">
       <div 
-        className="bg-zinc-800 rounded-md p-2 cursor-pointer shadow-lg transition-all duration-300 hover:shadow-xl"
+        className={`bg-zinc-800 rounded-md p-2 cursor-pointer shadow-lg transition-all duration-300 hover:shadow-xl ${isAdjusting ? 'cursor-not-allowed opacity-80' : ''}`}
         onClick={toggleTool}
       >
         <div className="flex items-center justify-center">
@@ -61,7 +91,7 @@ const BicycleTool = () => {
           </div>
         </div>
         <div className="text-center mt-1 text-xs text-zinc-400">
-          {isOpen ? "Click to fold" : "Click to unfold"}
+          {isAdjusting ? "Adjusting..." : isOpen ? "Limit Screws Adjusted" : "Adjust Limit Screws"}
         </div>
       </div>
     </div>
