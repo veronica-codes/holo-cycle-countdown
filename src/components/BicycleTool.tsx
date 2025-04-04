@@ -49,7 +49,7 @@ const BicycleTool = () => {
         <div className="flex items-center justify-center">
           {/* Tool body */}
           <div className="relative h-32 w-full overflow-visible">
-            {/* Main tool body - more oval-shaped with rounded ends like the image */}
+            {/* Main tool body - oval-shaped with rounded ends */}
             <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-700 rounded-full flex items-center justify-between px-4 mx-2">
               {/* Border around the tool body to create the double-line effect */}
               <div className="absolute inset-x-2 inset-y-1 bg-zinc-800 rounded-full border border-zinc-600"></div>
@@ -65,56 +65,73 @@ const BicycleTool = () => {
               </div>
             </div>
             
-            {/* Tools extending from the oval base */}
+            {/* Tools extending in a circular pattern */}
             <div className="absolute inset-x-0 bottom-4">
-              {/* Six tools in different directions */}
-              
-              {/* Left angled tools */}
+              {/* Tool 1 - 0 degrees (top) */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-70px] h-14 w-3 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-65deg] translate-y-[-6px]' : 'rotate-0 translate-y-12 opacity-0'}`}
-                style={{ transitionDelay: '100ms' }}
-              >
-                <div className="h-6 w-6 bg-zinc-500 absolute -right-1 top-0 transform rotate-0 rounded-t-md"></div>
-              </div>
-              
-              <div 
-                className={`absolute bottom-2 left-1/2 ml-[-100px] h-12 w-3 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-120deg] translate-y-[-8px]' : 'rotate-0 translate-y-12 opacity-0'}`}
-                style={{ transitionDelay: '150ms' }}
-              >
-                <div className="h-5 w-8 bg-zinc-500 absolute -left-2 top-0 transform rotate-0 rounded-md"></div>
-              </div>
-              
-              {/* Top tools */}
-              <div 
-                className={`absolute bottom-2 left-1/2 ml-[-1px] h-16 w-3 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-90deg] translate-y-[-10px]' : 'rotate-0 translate-y-12 opacity-0'}`}
+                className={`absolute bottom-2 left-1/2 ml-[-1.5px] h-16 w-3 bg-zinc-600 rounded-t-md origin-bottom transition-all duration-300 ${isOpen ? 'translate-y-[-40px]' : 'translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '0ms' }}
               >
-                <div className="h-6 w-5 bg-zinc-500 absolute -right-1 top-0 transform rotate-0 rounded-t-md"></div>
+                <div className="h-6 w-5 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
               </div>
               
+              {/* Tool 2 - 60 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[-1px] h-16 w-3 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-90deg translate-y-[-10px]' : 'rotate-0 translate-y-12 opacity-0'}`}
+                className={`absolute bottom-2 left-1/2 ml-[40px] h-14 w-3 bg-zinc-600 rounded-t-md origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[30deg] translate-y-[-35px] translate-x-[10px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '50ms' }}
               >
-                <div className="h-6 w-5 bg-zinc-500 absolute -left-1 top-0 transform rotate-0 rounded-t-md"></div>
+                <div className="h-6 w-6 bg-zinc-500 absolute -left-1 top-0 rounded-t-md"></div>
               </div>
               
-              {/* Right angled tools */}
+              {/* Tool 3 - 120 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[70px] h-14 w-3 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-65deg translate-y-[-6px]' : 'rotate-0 translate-y-12 opacity-0'}`}
+                className={`absolute bottom-2 left-1/2 ml-[70px] h-12 w-3 bg-zinc-600 rounded-t-md origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[60deg] translate-y-[-20px] translate-x-[20px]' : 'rotate-0 translate-y-12 opacity-0'}`}
+                style={{ transitionDelay: '100ms' }}
+              >
+                <div className="h-5 w-8 bg-zinc-500 absolute -right-2 top-0 rounded-md"></div>
+              </div>
+              
+              {/* Tool 4 - 180 degrees */}
+              <div 
+                className={`absolute bottom-2 left-1/2 ml-[80px] h-10 w-3 bg-zinc-600 rounded-t-md origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[90deg] translate-x-[15px]' : 'rotate-0 translate-y-12 opacity-0'}`}
+                style={{ transitionDelay: '150ms' }}
+              >
+                <div className="h-6 w-5 bg-zinc-500 absolute -left-1 top-0 rounded-t-md"></div>
+              </div>
+              
+              {/* Tool 5 - 240 degrees */}
+              <div 
+                className={`absolute bottom-2 left-1/2 ml-[70px] h-12 w-3 bg-zinc-600 rounded-t-md origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[120deg] translate-y-[20px] translate-x-[20px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '200ms' }}
               >
-                <div className="h-6 w-6 bg-zinc-500 absolute -left-1 top-0 transform rotate-0 rounded-t-md"></div>
+                <div className="h-5 w-7 bg-zinc-500 absolute -right-2 top-0 rounded-md"></div>
               </div>
               
+              {/* Tool 6 - 300 degrees */}
               <div 
-                className={`absolute bottom-2 left-1/2 ml-[100px] h-12 w-3 bg-zinc-600 rounded-t-md transform origin-bottom transition-all duration-300 ${isOpen ? 'rotate-120deg translate-y-[-8px]' : 'rotate-0 translate-y-12 opacity-0'}`}
+                className={`absolute bottom-2 left-1/2 ml-[-40px] h-14 w-3 bg-zinc-600 rounded-t-md origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-30deg] translate-y-[-35px] translate-x-[-10px]' : 'rotate-0 translate-y-12 opacity-0'}`}
                 style={{ transitionDelay: '250ms' }}
               >
-                <div className="h-5 w-8 bg-zinc-500 absolute -right-2 top-0 transform rotate-0 rounded-md"></div>
+                <div className="h-6 w-6 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
               </div>
               
-              {/* Tool caps/covers that hide in the base to create the illusion of tools emerging */}
+              {/* Tool 7 - 240 degrees */}
+              <div 
+                className={`absolute bottom-2 left-1/2 ml-[-70px] h-12 w-3 bg-zinc-600 rounded-t-md origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-60deg] translate-y-[-20px] translate-x-[-20px]' : 'rotate-0 translate-y-12 opacity-0'}`}
+                style={{ transitionDelay: '300ms' }}
+              >
+                <div className="h-5 w-8 bg-zinc-500 absolute -left-2 top-0 rounded-md"></div>
+              </div>
+              
+              {/* Tool 8 - 180 degrees */}
+              <div 
+                className={`absolute bottom-2 left-1/2 ml-[-80px] h-10 w-3 bg-zinc-600 rounded-t-md origin-bottom transition-all duration-300 ${isOpen ? 'rotate-[-90deg] translate-x-[-15px]' : 'rotate-0 translate-y-12 opacity-0'}`}
+                style={{ transitionDelay: '350ms' }}
+              >
+                <div className="h-6 w-5 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
+              </div>
+              
+              {/* Tool cap/cover that hides in the base to create the illusion of tools emerging */}
               <div className="absolute inset-x-0 bottom-2 h-4 bg-zinc-700 rounded-full z-20"></div>
             </div>
           </div>
