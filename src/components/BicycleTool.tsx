@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Wrench } from 'lucide-react';
@@ -132,10 +131,10 @@ const BicycleTool = () => {
               </div>
               
               {/* Plastic center piece with higher z-index to appear over the tools */}
-              <div className="absolute left-1/2 bottom-6 transform -translate-x-1/2 w-16 h-16 bg-zinc-600 rounded-full z-10"></div>
+              
               
               {/* Tool cap/cover that hides in the base to create the illusion of tools emerging */}
-              <div className={`absolute left-1/2 bottom-6 transform -translate-x-1/2 w-16 h-6 bg-zinc-600 rounded-full transition-all duration-300 z-20 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+              
             </div>
           </div>
         </div>
