@@ -17,7 +17,7 @@ const Index = () => {
         <div className="subtitle">JUNE 6 2025</div>
       </div>
 
-      <div className="mt-40">
+      <div className="mt-10">
         {isToolVisible && (
           <div className="mt-30">
             <BicycleTool onOpen={handleToolOpen} />
