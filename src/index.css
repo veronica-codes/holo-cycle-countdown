@@ -175,7 +175,7 @@ h1 {
 
 /* Gradient Background for Body */
 .body-gradient {
-  @apply bg-gradient-to-b from-blue-100 via-teal-100 to-orange-100;
+  @apply bg-gradient-to-b from-emerald-100 via-teal-100 to-gray-300;
   position: relative;
   overflow: hidden;
 }
