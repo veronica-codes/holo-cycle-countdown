@@ -1,154 +1,126 @@
 import React, { useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
 import { Wrench } from 'lucide-react';
-const BicycleTool = () => {
+
+const BicycleTool = ({ onOpen }: { onOpen: () => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAdjusting, setIsAdjusting] = useState(false);
-  const {
-    toast
-  } = useToast();
+  const [isFadingOut, setIsFadingOut] = useState(false); // State for fade-out effect
+
   const toggleTool = () => {
-    // If currently adjusting, don't allow toggling
     if (isAdjusting) return;
     setIsOpen(!isOpen);
 
-    // Show appropriate toast notification
     if (!isOpen) {
       setIsAdjusting(true);
-      toast({
-        title: "Adjusting limit screws...",
-        description: "Fine-tuning the derailleur adjustment."
-      });
-
-      // Simulate adjustment completion after a delay
       setTimeout(() => {
         setIsAdjusting(false);
-        toast({
-          title: "Adjustment complete!",
-          description: "Your bicycle's shifting is now optimized.",
-          variant: "default"
-        });
+        setIsFadingOut(true); // Trigger fade-out effect
+        setTimeout(() => {
+          onOpen(); // Notify parent after fade-out completes
+        }, 500); // Match the fade-out duration
       }, 1500);
-    } else {
-      toast({
-        title: "Tools folded",
-        description: "Ready for your next adjustment."
-      });
     }
   };
-  return <div className="flex justify-center mt-8 mb-8 mx-[10px]">
-      <div className={`relative rounded-lg p-3 shadow-xl transition-all duration-300 hover:shadow-2xl ${isAdjusting ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`} onClick={toggleTool} style={{
-      maxWidth: '320px'
-    }}>
-        <div className="flex items-center justify-center">
-          {/* Tool body */}
-          <div className="relative h-32 w-full overflow-visible mx-0">
-            {/* Main tool body - enlarged oval-shaped with rounded ends */}
-            <div className="absolute inset-x-0 bottom-0 h-14 bg-zinc-700 rounded-full flex items-center justify-between py-[17px] my-[27px] mx-[4px] px-[22px]">
-              {/* Border around the tool body to create the double-line effect */}
-              <div className="absolute inset-x-2 inset-y-1 bg-zinc-800 rounded-full border border-zinc-600"></div>
-              
-              {/* Left circle */}
-              <div className="relative z-10 w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center border-2 border-zinc-600">
-                <div className="w-4 h-4 rounded-full bg-zinc-900"></div>
+
+  return (
+    <div className="flex flex-col items-center">
+      <div className={`flex justify-center mb-8 ${isFadingOut ? 'opacity-0 transition-opacity duration-500' : ''}`}>
+        <div className={`relative ${isAdjusting ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'} mx-auto`} onClick={toggleTool}>
+          <div className="flex items-center justify-center">
+            {/* Tool body */}
+            <div className="relative w-48 h-32 overflow-visible mx-auto">
+              {/* Main tool body */}
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-zinc-700 rounded-full flex items-center justify-between px-4 py-2 shadow-md z-10">
+                {/* Left bolt */}
+                <div className="w-6 h-6 bg-zinc-800 rounded-full border-4 border-zinc-500 flex items-center justify-center">
+                  <div className="w-3 h-3 bg-zinc-900 rounded-full"></div>
+                </div>
+                {/* Central oval */}
+                <div className="w-28 h-12 bg-zinc-800 rounded-full border-4 border-zinc-500 flex items-center justify-center relative">
+                  <div className="w-24 h-10 bg-zinc-700 rounded-full"></div>
+                  {/* Logo and product name */}
+                  <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+                    <Wrench className="h-4 w-4 text-zinc-400 mx-1" />
+                    <span className="text-xs font-thin text-zinc-300">
+                      OPEN BIKE MULTI-TOOL
+                    </span>
+                  </div>
+                </div>
+                {/* Right bolt */}
+                <div className="w-6 h-6 bg-zinc-800 rounded-full border-2 border-zinc-500 flex items-center justify-center">
+                  <div className="w-3 h-3 bg-zinc-900 rounded-full"></div>
+                </div>
               </div>
-              
-              {/* Right circle */}
-              <div className="relative z-10 w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center border-2 border-zinc-600">
-                <div className="w-4 h-4 rounded-full bg-zinc-900"></div>
+              {/* Tools emerging from the central body */}
+              {/* Tool 1 - Top center */}
+              <div className={`absolute bottom-6 left-1/2 ml-[-1px] h-16 w-2 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500 z-0
+                ${isOpen ? 'rotate-[0deg] translate-y-[-40px]' : 'rotate-0 translate-y-0 opacity-0'}`} style={{
+                transitionDelay: '0ms'
+              }}>
+                <div className="h-4 w-4 bg-zinc-500 absolute top-0 rounded-t-md"></div>
               </div>
-            </div>
-            
-            {/* Enlarged plastic base that connects to the tools */}
-            <div className="absolute inset-x-0 bottom-4 w-full">
-              {/* Connector ring around the base when tools are open */}
-              <div className={`absolute left-1/2 bottom-6 transform -translate-x-1/2 w-40 h-40 rounded-full border-2 border-zinc-500 transition-opacity duration-300 ${isOpen ? 'opacity-30' : 'opacity-0'}`}></div>
-              
-              {/* Tool bits - Note the z-index is now set to a lower value so they appear behind the plastic */}
-              
-              {/* Tool 1 - 0 degrees (top) */}
-              <div className={`absolute bottom-6 left-1/2 ml-[-1.5px] h-16 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 z-0
-                ${isOpen ? 'translate-y-[-40px]' : 'translate-y-12 opacity-0'}`} style={{
-              transitionDelay: '0ms'
-            }}>
+              {/* Tool 2 - Top right */}
+              <div className={`absolute bottom-6 left-1/2 ml-[15px] h-14 w-2 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500 
+                ${isOpen ? 'rotate-[30deg] translate-y-[-35px] translate-x-[15px]' : 'rotate-0 translate-y-0 translate-x-0 opacity-0'}`} style={{
+                transitionDelay: '50ms'
+              }}>
+                <div className="h-4 w-4 bg-zinc-500 absolute top-0 rounded-t-md"></div>
+              </div>
+              {/* Tool 3 - Right edge */}
+              <div className={`absolute bottom-6 left-1/2 ml-[30px] h-12 w-2 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500
+                ${isOpen ? 'rotate-[90deg] translate-y-[-30px] translate-x-[50px]' : 'rotate-0 translate-y-0 translate-x-0 opacity-0'}`} style={{
+                transitionDelay: '100ms'
+              }}>
+                <div className="h-4 w-4 bg-zinc-500 absolute top-0 rounded-t-md"></div>
+              </div>
+              {/* Tool 4 - Bottom right */}
+              <div className={`absolute bottom-6 left-1/2 ml-[65px] h-10 w-2 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500 
+                ${isOpen ? 'rotate-[150deg] translate-y-[-20px] translate-x-[20px]' : 'rotate-0 translate-y-0 translate-x-0 opacity-0'}`} style={{
+                transitionDelay: '150ms'
+              }}>
+                <div className="h-4 w-4 bg-zinc-500 absolute top-0 rounded-t-md"></div>
+              </div>
+              {/* Tool 5 - Bottom left */}
+              <div className={`absolute bottom-6 left-1/2 ml-[-25px] h-10 w-2 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500 
+                ${isOpen ? 'rotate-[-150deg] translate-y-[-20px] translate-x-[-72px]' : 'rotate-0 translate-y-0 translate-x-0 opacity-0'}`} style={{
+                transitionDelay: '200ms'
+              }}>
+                <div className="h-4 w-4 bg-zinc-500 absolute top-0 rounded-t-md"></div>
+              </div>
+              {/* Tool 6 - Left edge */}
+              <div className={`absolute bottom-6 left-1/2 ml-[-30px] h-12 w-2 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500 
+                ${isOpen ? 'rotate-[-90deg] translate-y-[-30px] translate-x-[-55px]' : 'rotate-0 translate-y-0 translate-x-0 opacity-0'}`} style={{
+                transitionDelay: '250ms'
+              }}>
+                <div className="h-4 w-4 bg-zinc-500 absolute top-0 rounded-t-md"></div>
+              </div>
+              {/* Tool 7 - Top left */}
+              <div className={`absolute bottom-6 left-1/2 ml-[-15px] h-14 w-2 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500 
+                ${isOpen ? 'rotate-[-30deg] translate-y-[-35px] translate-x-[-15px]' : 'rotate-0 translate-y-0 translate-x-0 opacity-0'}`} style={{
+                transitionDelay: '300ms'
+              }}>
+                <div className="h-4 w-4 bg-zinc-500 absolute top-0 rounded-t-md"></div>
+              </div>
+              {/* Tool 8 - 315 degrees */}
+              <div className={`absolute bottom-6 left-1/2 ml-[20px] h-10 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500 
+                ${isOpen ? 'rotate-[315deg] translate-y-[-35px] translate-x-[5px]' : 'rotate-0 translate-y-0 translate-x-0 opacity-0'}`} style={{
+                transitionDelay: '350ms'
+              }}>
                 <div className="h-6 w-5 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
               </div>
-              
-              {/* Tool 2 - 60 degrees */}
-              <div className={`absolute bottom-6 left-1/2 ml-[40px] h-14 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 z-0
-                ${isOpen ? 'rotate-[30deg] translate-y-[-35px] translate-x-[10px]' : 'rotate-0 translate-y-12 opacity-0'}`} style={{
-              transitionDelay: '50ms'
-            }}>
-                <div className="h-6 w-6 bg-zinc-500 absolute -left-1 top-0 rounded-t-md"></div>
+              {/* New Tool - 22.5 degrees */}
+              <div className={`absolute bottom-6 left-1/2 ml-[10px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-500 
+                ${isOpen ? 'rotate-[22.5deg] translate-y-[-35px] translate-x-[3px]' : 'rotate-0 translate-y-0 translate-x-0 opacity-0'}`} style={{
+                transitionDelay: '25ms'
+              }}>
+                <div className="h-5 w-6 bg-zinc-500 absolute -left-1 top-0 rounded-t-md"></div>
               </div>
-              
-              {/* Tool 3 - 120 degrees */}
-              <div className={`absolute bottom-6 left-1/2 ml-[70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 z-0
-                ${isOpen ? 'rotate-[60deg] translate-y-[-20px] translate-x-[20px]' : 'rotate-0 translate-y-12 opacity-0'}`} style={{
-              transitionDelay: '100ms'
-            }}>
-                <div className="h-5 w-8 bg-zinc-500 absolute -right-2 top-0 rounded-md"></div>
-              </div>
-              
-              {/* Tool 4 - 180 degrees */}
-              <div className={`absolute bottom-6 left-1/2 ml-[80px] h-10 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 z-0
-                ${isOpen ? 'rotate-[90deg] translate-x-[15px]' : 'rotate-0 translate-y-12 opacity-0'}`} style={{
-              transitionDelay: '150ms'
-            }}>
-                <div className="h-6 w-5 bg-zinc-500 absolute -left-1 top-0 rounded-t-md"></div>
-              </div>
-              
-              {/* Tool 5 - 240 degrees */}
-              <div className={`absolute bottom-6 left-1/2 ml-[70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 z-0
-                ${isOpen ? 'rotate-[120deg] translate-y-[20px] translate-x-[20px]' : 'rotate-0 translate-y-12 opacity-0'}`} style={{
-              transitionDelay: '200ms'
-            }}>
-                <div className="h-5 w-7 bg-zinc-500 absolute -right-2 top-0 rounded-md"></div>
-              </div>
-              
-              {/* Tool 6 - 300 degrees */}
-              <div className={`absolute bottom-6 left-1/2 ml-[-40px] h-14 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 z-0
-                ${isOpen ? 'rotate-[-30deg] translate-y-[-35px] translate-x-[-10px]' : 'rotate-0 translate-y-12 opacity-0'}`} style={{
-              transitionDelay: '250ms'
-            }}>
-                <div className="h-6 w-6 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
-              </div>
-              
-              {/* Tool 7 - 240 degrees */}
-              <div className={`absolute bottom-6 left-1/2 ml-[-70px] h-12 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 z-0
-                ${isOpen ? 'rotate-[-60deg] translate-y-[-20px] translate-x-[-20px]' : 'rotate-0 translate-y-12 opacity-0'}`} style={{
-              transitionDelay: '300ms'
-            }}>
-                <div className="h-5 w-8 bg-zinc-500 absolute -left-2 top-0 rounded-md"></div>
-              </div>
-              
-              {/* Tool 8 - 180 degrees */}
-              <div className={`absolute bottom-6 left-1/2 ml-[-80px] h-10 w-3 bg-gradient-to-t from-zinc-600 to-zinc-500 rounded-t-md origin-bottom transform transition-all duration-300 z-0
-                ${isOpen ? 'rotate-[-90deg] translate-x-[-15px]' : 'rotate-0 translate-y-12 opacity-0'}`} style={{
-              transitionDelay: '350ms'
-            }}>
-                <div className="h-6 w-5 bg-zinc-500 absolute -right-1 top-0 rounded-t-md"></div>
-              </div>
-              
-              {/* Plastic center piece with higher z-index to appear over the tools */}
-              
-              
-              {/* Tool cap/cover that hides in the base to create the illusion of tools emerging */}
-              
             </div>
           </div>
         </div>
-        
-        {/* Logo and product name */}
-        <div className="flex items-center justify-center mt-2">
-          <Wrench className="h-4 w-4 text-zinc-400 mr-1" />
-          <span className="text-xs font-bold text-zinc-300">BIKE MULTI-TOOL</span>
-        </div>
-        
-        <div className="text-center mt-2 text-xs font-medium text-zinc-400 bg-zinc-800 rounded py-1 px-2">
-          {isAdjusting ? "Adjusting..." : isOpen ? "Limit Screws Adjusted" : "Adjust Limit Screws"}
-        </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default BicycleTool;

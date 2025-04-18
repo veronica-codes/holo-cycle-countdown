@@ -158,6 +158,8 @@ function toast({ ...props }: Toast) {
       onOpenChange: (open) => {
         if (!open) dismiss()
       },
+      // Ensure toast is positioned in the top-right corner
+      style: { position: "fixed", top: "16px", right: "16px", zIndex: 1000 },
     },
   })
 

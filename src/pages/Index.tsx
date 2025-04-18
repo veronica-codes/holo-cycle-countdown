@@ -1,28 +1,35 @@
-import React from 'react';
+import { useState } from 'react';
 import CountdownTimer from '../components/CountdownTimer';
-import HolographicBicycles from '../components/HolographicBicycles';
 import BicycleTool from '../components/BicycleTool';
-import ChainRepairButton from '../components/ChainRepairButton';
+
 const Index = () => {
-  // Set the event date to June, 6 2025
-  const eventDate = new Date("June 6, 2025 00:00:00");
-  return <div className="holo-container">
-      <div className="glitter-overlay"></div>
-      <HolographicBicycles />
-      <ChainRepairButton />
+  const [isToolVisible, setIsToolVisible] = useState(true); // State to control visibility
+  const eventDate = new Date("June 6, 2025 08:00:00");
 
+  const handleToolOpen = () => {
+    setIsToolVisible(false); // Hide the tool immediately after opening
+  };
+
+  return (
+    <div className="h-screen">
       <div className="header">
-        <h1 className="font-medium text-5xl">Bike of 2025</h1>
-        <div className="subtitle">JUNE 6-8, 2025</div>
+        <h1 className="text-5xl">Peak District Mechanics</h1>
+        <div className="subtitle">JUNE 6 2025</div>
       </div>
 
-      <div className="container mx-auto px-4 max-w-4xl relative z-10">
-        <div className="countdown-container p-8 backdrop-blur-sm bg-stone-800/30 border border-stone-600/30 rounded-xl shadow-lg mt-8">
-          <CountdownTimer targetDate={eventDate} />
+      <div className="mt-40">
+        {isToolVisible && (
+          <div className="mt-30">
+            <BicycleTool onOpen={handleToolOpen} />
+          </div>
+        )}
+
+        <div className={`${isToolVisible ? 'hidden opacity-0 pointer-events-none' : ''} transition-opacity duration-500`}>
+           <CountdownTimer targetDate={eventDate} /> 
         </div>
-        
-        <BicycleTool />
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

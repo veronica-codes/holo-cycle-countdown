@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;700&display=swap');
 
 @tailwind base;
@@ -7,75 +6,62 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --foreground: 50 50 50; /* Dark gray for text */
+    --primary: 232 69 164; /* Purple-pink */
+    --primary-foreground: 255 255 255; /* White text */
+    --border: 230 230 230; /* Light gray borders */
+    --radius: 0.5rem; /* Rounded corners */
   }
+}
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+
+
+/* Headings */
+h1 {
+  @apply font-thin text-5xl md:text-6xl text-neutral-800;
+  letter-spacing: 2px;
+}
+
+.holo-title {
+  @apply font-thin text-3xl text-neutral-600;
+}
+
+/* Cards */
+.holo-card {
+  @apply rounded-lg p-8 mb-8 border border-neutral-200;
+}
+
+/* Buttons */
+.holo-btn {
+  @apply font-thin bg-purple-500 text-white py-3 px-6 rounded-lg transition-all duration-300 mt-4 border-none cursor-pointer uppercase tracking-wide text-sm;
+}
+
+.holo-btn:hover {
+  @apply bg-purple-600;
+  /* Removed box-shadow */
+}
+
+/* Countdown */
+.countdown-item {
+  @apply w-32 h-32 bg-transparent rounded-full flex flex-col justify-center items-center border-8 border-gray-600 relative shadow-md;
+}
+
+.countdown-value {
+  @apply font-thin text-4xl leading-none text-neutral-800 text-wrap absolute;
+}
+
+.countdown-label {
+  @apply font-thin text-sm uppercase mt-1 tracking-wide text-neutral-500; /* Reduced margin-top */
+}
+
+/* Header */
+.header {
+  @apply text-center p-12 pb-8 relative overflow-hidden bg-white;
+  backdrop-filter: blur(10px); /* Add blur effect */
+}
+
+.subtitle {
+  @apply font-thin text-base md:text-xl mt-2 tracking-wide text-neutral-600;
 }
 
 @layer base {
@@ -83,108 +69,62 @@
     @apply border-border;
   }
 
-  body {
-    @apply font-['Quicksand',sans-serif] overflow-x-hidden;
-    background-color: #5a8c3e;
-    background-image: 
-      url("data:image/svg+xml,%3Csvg width='60' height='40' viewBox='0 0 60 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2365a14a' fill-opacity='0.4'%3E%3Cpath d='M0 40 L30 0 L60 40 Z' /%3E%3Cpath d='M10 40 L30 10 L50 40 Z' /%3E%3Cpath d='M20 40 L30 20 L40 40 Z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-      linear-gradient(135deg, #417c25 0%, #5a8c3e 50%, #7ead62 100%);
-    color: #f3f3f3;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
-
   h1 {
-    @apply font-['Dancing_Script',cursive] text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-green-100 via-stone-100 to-stone-200;
-    text-shadow: 0 0 10px rgba(20, 40, 20, 0.7);
+    @apply font-thin text-5xl md:text-6xl text-neutral-800;
     letter-spacing: 2px;
   }
 
   .holo-title {
-    @apply font-['Dancing_Script',cursive] text-3xl text-stone-200;
-    text-shadow: 0 0 5px rgba(120, 150, 100, 0.7);
+    @apply font-thin text-3xl text-neutral-600;
   }
 }
 
 @layer components {
-  .holo-container {
-    @apply relative min-h-screen p-0 m-0 overflow-hidden;
-    perspective: 1000px;
-  }
 
-  .glitter-overlay {
-    @apply fixed top-0 left-0 w-full h-full pointer-events-none opacity-30;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white" opacity="0.6"/><circle cx="20" cy="25" r="0.5" fill="white" opacity="0.7"/><circle cx="35" cy="12" r="0.8" fill="white" opacity="0.5"/><circle cx="50" cy="30" r="0.6" fill="white" opacity="0.6"/><circle cx="70" cy="15" r="0.7" fill="white" opacity="0.7"/><circle cx="85" cy="35" r="0.5" fill="white" opacity="0.5"/><circle cx="15" cy="45" r="0.6" fill="white" opacity="0.6"/><circle cx="30" cy="65" r="0.7" fill="white" opacity="0.5"/><circle cx="55" cy="50" r="0.5" fill="white" opacity="0.7"/><circle cx="75" cy="70" r="0.8" fill="white" opacity="0.6"/><circle cx="90" cy="45" r="0.6" fill="white" opacity="0.5"/><circle cx="25" cy="85" r="0.7" fill="white" opacity="0.7"/><circle cx="50" cy="90" r="0.5" fill="white" opacity="0.6"/><circle cx="70" cy="80" r="0.8" fill="white" opacity="0.5"/><circle cx="85" cy="95" r="0.6" fill="white" opacity="0.7"/></svg>');
-  }
 
   .header {
     @apply text-center p-12 pb-8 relative overflow-hidden;
+    background: linear-gradient(135deg, #f9f9f9, #eaeaea);
   }
 
   .header::before {
     content: '';
-    @apply absolute top-0 left-0 w-full h-full opacity-40 -z-10;
-    background: linear-gradient(45deg, #2a5219, #3d6e27, #5a8c3e, #7ead62);
-    transform: translateZ(-10px);
-    filter: blur(8px);
+    @apply absolute top-0 left-0 w-full h-full opacity-20 -z-10;
+    background: linear-gradient(45deg, #d1d1d1, #eaeaea);
+    filter: blur(10px);
   }
 
   .subtitle {
-    @apply text-base md:text-xl mt-2 font-light tracking-widest text-stone-200/90;
-    text-shadow: 0 0 5px rgba(50, 50, 50, 0.8);
+    @apply font-thin text-base md:text-xl mt-2 tracking-wide text-neutral-600;
   }
 
   .holo-card {
-    @apply bg-stone-800/60 backdrop-blur-md rounded-xl p-8 mb-8 shadow-xl border border-green-700/30 relative overflow-hidden transform-gpu transition-transform duration-300 ease-in-out;
-    transform-style: preserve-3d;
-  }
-
-  .holo-card::before {
-    content: '';
-    @apply absolute top-[-50%] left-[-50%] w-[200%] h-[200%] pointer-events-none;
-    background: linear-gradient(45deg, transparent, rgba(150, 200, 120, 0.15), transparent);
-    transform: rotate(45deg);
+    @apply bg-white rounded-lg p-8 mb-8 border border-neutral-200 relative overflow-hidden;
   }
 
   .holo-card:hover {
     @apply -translate-y-1;
-    transform: translateY(-5px) rotateX(5deg);
+    transform: translateY(-5px);
   }
 
   .countdown-item {
-    @apply w-28 h-32 bg-gradient-to-br from-stone-700/80 to-stone-800/80 rounded-xl flex flex-col justify-center items-center shadow-xl border border-stone-600/30 relative overflow-hidden;
-    transform-style: preserve-3d;
-  }
-
-  .countdown-item::before {
-    content: '';
-    @apply absolute w-[150%] h-[150%] top-[-25%] left-[-25%] animate-pulse;
-    background: radial-gradient(circle, rgba(180, 200, 150, 0.1) 0%, rgba(180, 200, 150, 0) 70%);
+    @apply w-32 h-32 rounded-full flex flex-col justify-center items-center border-4 border-neutral-100 relative shadow-md;
   }
 
   .countdown-value {
-    @apply text-4xl font-bold leading-none bg-gradient-to-b from-stone-200 to-stone-400 bg-clip-text text-transparent;
-    text-shadow: 0 0 10px rgba(150, 180, 120, 0.5);
+    @apply font-thin text-4xl leading-none text-neutral-800 absolute;
   }
 
   .countdown-label {
-    @apply text-sm uppercase mt-2 tracking-wide text-stone-400;
+    @apply font-thin text-sm uppercase mt-1 tracking-wide text-neutral-500; /* Reduced margin-top */
   }
 
   .holo-btn {
-    @apply inline-block bg-gradient-to-r from-green-700 to-green-900 text-stone-200 py-3 px-6 rounded-full font-bold transition-all duration-300 mt-4 border-none cursor-pointer shadow-lg uppercase tracking-wide text-sm relative overflow-hidden;
-    box-shadow: 0 5px 15px rgba(50, 100, 50, 0.4), 0 0 10px rgba(100, 150, 100, 0.2);
-  }
-
-  .holo-btn::before {
-    content: '';
-    @apply absolute top-[-50%] left-[-50%] w-[200%] h-[200%] pointer-events-none;
-    background: linear-gradient(45deg, transparent, rgba(180, 200, 150, 0.3), transparent);
-    transform: rotate(45deg);
+    @apply inline-block font-thin bg-neutral-800 text-white py-3 px-6 rounded-lg transition-all duration-300 mt-4 border-none cursor-pointer uppercase tracking-wide text-sm;
   }
 
   .holo-btn:hover {
-    @apply bg-gradient-to-r from-green-800 via-green-700 to-green-600 -translate-y-1;
-    box-shadow: 0 8px 25px rgba(50, 100, 50, 0.5), 0 0 15px rgba(100, 150, 100, 0.3);
+    @apply bg-neutral-700;
   }
 
   .workshop-title {
@@ -193,7 +133,7 @@
   }
 
   .workshop-highlight {
-    @apply bg-stone-700/40 border-l-4 border-green-700/50 p-4 my-4 backdrop-blur-sm;
+    @apply bg-stone-700/40 border-l-4 border-neutral-700/50 p-4 my-4 backdrop-blur-sm;
   }
 
   .countdown-container {
@@ -202,11 +142,11 @@
 
   @media (max-width: 768px) {
     .countdown-item {
-      @apply w-20 h-24;
+      @apply w-24 h-24;
     }
     
     .countdown-value {
-      @apply text-3xl;
+      @apply text-3xl absolute;
     }
     
     .countdown-label {
@@ -216,13 +156,46 @@
 
   @media (max-width: 640px) {
     .countdown-item {
-      @apply w-16 h-20;
+      @apply w-20 h-20;
     }
     
     .countdown-value {
-      @apply text-2xl;
+      @apply text-2xl absolute;
     }
   }
+}
+
+/* Noto Sans Font Class */
+.noto-sans {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+/* Gradient Background for Body */
+.body-gradient {
+  @apply bg-gradient-to-b from-blue-100 via-teal-100 to-orange-100;
+
+
+  
+}
+
+/* Example Usage */
+body {
+  @apply noto-sans overflow-x-hidden body-gradient;
+  color: hsl(var(--foreground));
+}
+
+h1 {
+  @apply noto-sans;
+  @apply text-5xl md:text-6xl text-neutral-800;
+  letter-spacing: 2px;
+}
+
+.holo-title {
+  @apply noto-sans;
+  @apply text-3xl text-neutral-600;
 }
 
 @keyframes progress {
@@ -233,3 +206,207 @@
     width: 100%;
   }
 }
+
+
+/* Tools Section */
+.tools-section {
+  @apply bg-neutral-100 py-12 px-6 rounded-lg border border-neutral-200;
+}
+
+.tool-item {
+  @apply flex items-center gap-4 p-4 rounded-lg border border-neutral-200 transition-all duration-300;
+}
+
+.tool-item:hover {
+  @apply bg-neutral-50;
+}
+
+.tool-icon {
+  @apply w-12 h-12 bg-purple-500 text-white flex justify-center items-center rounded-full text-lg font-bold;
+}
+
+.tool-description {
+  @apply flex-1 text-neutral-800;
+}
+
+.tool-title {
+  @apply font-thin text-lg;
+}
+
+.tool-details {
+  @apply font-thin text-sm text-neutral-600;
+}
+
+/* Chain Tool */
+.chain-tool {
+  @apply flex items-center gap-6 p-6  rounded-lg border border-neutral-200;
+}
+
+.chain-tool-icon {
+  @apply w-16 h-16 bg-purple-600 text-white flex justify-center items-center rounded-full text-2xl font-bold;
+}
+
+.chain-tool-content {
+  @apply flex-1;
+}
+
+.chain-tool-title {
+  @apply font-thin text-xl text-neutral-800;
+}
+
+.chain-tool-description {
+  @apply font-thin text-sm text-neutral-600 mt-1;
+}
+
+/* Notification */
+.notification {
+  @apply fixed top-4 right-4 bg-purple-500 text-white py-3 px-6 rounded-lg z-50;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.hidden {
+  @apply opacity-0 transform translate-x-4;
+}
+
+/* Remove any dynamic yellow background styles */
+.scroll-effect {
+  @apply bg-transparent; /* Ensure no yellow background is applied */
+}
+
+/* Tool Bag Section */
+.tool-bag {
+  @apply  py-8 px-6 rounded-lg border border-neutral-200;
+}
+
+.tool-bag-title {
+  @apply font-thin text-xl text-neutral-800 mb-4;
+}
+
+.tool-bag-items {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.tool-bag-item {
+  @apply flex items-center gap-4 p-4 rounded-lg border border-neutral-200 transition-all duration-300;
+}
+
+.tool-bag-item:hover {
+  @apply bg-neutral-50;
+}
+
+.tool-bag-icon {
+  @apply w-12 h-12 bg-purple-500 text-white flex justify-center items-center rounded-full text-lg font-bold;
+}
+
+.tool-bag-description {
+  @apply flex-1 text-neutral-800;
+}
+
+.tool-bag-item-title {
+  @apply font-thin text-lg;
+}
+
+.tool-bag-item-details {
+  @apply font-thin text-sm text-neutral-600;
+}
+
+.bike_container {
+  @apply w-28 h-28;
+}
+
+.bike__wheel_d {
+  @apply w-28 h-28 rounded-full border-4 border-gray-300 flex ;
+  animation: wheel-rotation 10s linear infinite;
+}
+
+.bike__wheel_h {
+  @apply w-28 h-28 rounded-full border-4 border-gray-300 flex ;
+  animation: wheel-rotation 6s linear infinite;
+}
+
+.bike__wheel_m {
+  @apply w-28 h-28 rounded-full border-4 border-gray-300 flex ;
+  animation: wheel-rotation 4s linear infinite;
+}
+
+.bike__wheel_s {
+  @apply w-28 h-28 rounded-full border-4 border-gray-300 flex ;
+  animation: wheel-rotation 2s linear infinite;
+}
+
+
+.spoke {
+  @apply h-full absolute top-0 w-px left-1/2 transform -translate-x-1/2;
+  background-color: #c0c0c0;
+}
+
+.spoke::before,
+.spoke::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 2px;
+  background-color: #909090; /* Slightly darker spoke ends */
+}
+
+.spoke::before { top: 0; }
+.spoke::after { bottom: 0; }
+
+/* Generate 36 spokes (10° apart) */
+.spoke-1 { transform: rotate(10deg); }
+.spoke-2 { transform: rotate(20deg); }
+.spoke-3 { transform: rotate(30deg); }
+.spoke-4 { transform: rotate(40deg); }
+.spoke-5 { transform: rotate(50deg); }
+.spoke-6 { transform: rotate(60deg); }
+.spoke-7 { transform: rotate(70deg); }
+.spoke-8 { transform: rotate(80deg); }
+.spoke-9 { transform: rotate(90deg); }
+.spoke-10 { transform: rotate(100deg); }
+.spoke-11 { transform: rotate(110deg); }
+.spoke-12 { transform: rotate(120deg); }
+.spoke-13 { transform: rotate(130deg); }
+.spoke-14 { transform: rotate(140deg); }
+.spoke-15 { transform: rotate(150deg); }
+.spoke-16 { transform: rotate(160deg); }
+.spoke-17 { transform: rotate(170deg); }
+.spoke-18 { transform: rotate(180deg); }
+.spoke-19 { transform: rotate(190deg); }
+.spoke-20 { transform: rotate(200deg); }
+.spoke-21 { transform: rotate(210deg); }
+.spoke-22 { transform: rotate(220deg); }
+.spoke-23 { transform: rotate(230deg); }
+.spoke-24 { transform: rotate(240deg); }
+.spoke-25 { transform: rotate(250deg); }
+.spoke-26 { transform: rotate(260deg); }
+.spoke-27 { transform: rotate(270deg); }
+.spoke-28 { transform: rotate(280deg); }
+.spoke-29 { transform: rotate(290deg); }
+.spoke-30 { transform: rotate(300deg); }
+.spoke-31 { transform: rotate(310deg); }
+.spoke-32 { transform: rotate(320deg); }
+.spoke-33 { transform: rotate(330deg); }
+.spoke-34 { transform: rotate(340deg); }
+.spoke-35 { transform: rotate(350deg); }
+.spoke-36 { transform: rotate(360deg); }
+
+@keyframes wheel-rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+/* Tools emerging animation */
+.tool-animation {
+  animation-duration: 1s; /* Slower animation */
+  animation-timing-function: ease-in-out;
+}
+
+.hidden-timer {
+  @apply opacity-0 pointer-events-none transition-opacity duration-500;
+}
+
+.visible-timer {
+  @apply opacity-100 pointer-events-auto transition-opacity duration-500;
+}
+
