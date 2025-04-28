@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import CountdownTimer from '../components/CountdownTimer';
 import BicycleTool from '../components/BicycleTool';
+import { Flower } from 'lucide-react';
 
 const Index = () => {
   const [isToolVisible, setIsToolVisible] = useState(true);
@@ -12,11 +13,18 @@ const Index = () => {
   };
 
   return (
-    <div className="h-screen">
-      <div className="header">
-        <h1 className="text-5xl">Bike Mechanics X SITW</h1>
+    <div className="h-screen bg-gradient-to-b from-pink-50 via-white to-pink-50">
+      <div className="header bg-gradient-to-r from-pink-50 to-white">
+        <div className="flex justify-center items-center gap-3">
+          <Flower className="text-pink-400 w-8 h-8" />
+          <h1 className="text-5xl">Bike Mechanics X SITW</h1>
+          <Flower className="text-pink-400 w-8 h-8" />
+        </div>
         <div className="subtitle">JUNE 6 2025</div>
-        <div className="text-lg mt-2 text-gray-600">In memory of Lily</div>
+        <div className="text-lg mt-2 text-pink-600 font-light flex items-center justify-center gap-2">
+          <span>In memory of</span>
+          <span className="font-dancing-script text-2xl">Lily</span>
+        </div>
       </div>
 
       <div className="mt-10">
