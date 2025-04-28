@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import CountdownTimer from '../components/CountdownTimer';
 import BicycleTool from '../components/BicycleTool';
@@ -12,7 +11,7 @@ const Index = () => {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-purple-300 via-pink-300 via-orange-200 via-yellow-200 via-green-200 to-blue-300">
+    <div className="h-screen bg-gradient-to-br from-purple-200 via-pink-100 to-blue-200">
       <div className="header bg-white/50 backdrop-blur-sm">
         <div className="flex justify-center items-center">
           <h1 className="text-5xl">✨ Bike Mechanics X SITW ✨</h1>
