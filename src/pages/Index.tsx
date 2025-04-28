@@ -16,6 +16,7 @@ const Index = () => {
       <div className="header">
         <h1 className="text-5xl">Bike Mechanics X SITW</h1>
         <div className="subtitle">JUNE 6 2025</div>
+        <div className="text-lg mt-2 text-gray-600">In memory of Lily</div>
       </div>
 
       <div className="mt-10">
@@ -34,4 +35,3 @@ const Index = () => {
 };
 
 export default Index;
-
