@@ -21,10 +21,6 @@ const Index = () => {
           <Flower className="text-pink-400 w-8 h-8" />
         </div>
         <div className="subtitle">JUNE 6 2025</div>
-        <div className="text-lg mt-2 text-pink-600 font-light flex items-center justify-center gap-2">
-          <span>In memory of</span>
-          <span className="font-dancing-script text-2xl">Lily</span>
-        </div>
       </div>
 
       <div className="mt-10">
