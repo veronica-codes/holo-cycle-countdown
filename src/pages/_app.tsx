@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Bike Repair Workshop</title>
+        <title>Bike Mechanics X SITW</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
@@ -15,3 +15,4 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
