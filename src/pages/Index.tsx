@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import CountdownTimer from '../components/CountdownTimer';
 import BicycleTool from '../components/BicycleTool';
@@ -13,7 +14,7 @@ const Index = () => {
   return (
     <div className="h-screen">
       <div className="header">
-        <h1 className="text-5xl">Peak District Mechanics</h1>
+        <h1 className="text-5xl">Bike Repair Workshop</h1>
         <div className="subtitle">JUNE 6 2025</div>
       </div>
 
