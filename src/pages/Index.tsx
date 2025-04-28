@@ -17,7 +17,7 @@ const Index = () => {
       <div className="header bg-gradient-to-r from-pink-50 to-white">
         <div className="flex justify-center items-center gap-3">
           <Flower className="text-pink-400 w-8 h-8" />
-          <h1 className="text-5xl">Bike Mechanics X SITW</h1>
+          <h1 className="text-5xl">✨ Bike Mechanics X SITW ✨</h1>
           <Flower className="text-pink-400 w-8 h-8" />
         </div>
         <div className="subtitle">JUNE 6 2025</div>
