@@ -12,24 +12,24 @@ const Index = () => {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+    <div className="min-h-screen bg-gradient-to-br from-green-100 via-emerald-100 to-teal-100">
       <div className="header bg-white/50 backdrop-blur-sm">
         <div className="flex justify-center items-center">
-          <h1 className="text-5xl">Bike Mechanics ✨ SITW</h1>
+          <h1 className="text-5xl">Bike Mechanics SITW</h1>
         </div>
         <div className="subtitle">JUNE 6 2025</div>
       </div>
 
-      <div className="mt-10">
-        {isToolVisible && (
-          <div className="mt-30">
+      <div className="container mx-auto mt-10 px-4">
+        {isToolVisible ? (
+          <div className="mt-10">
             <BicycleTool onOpen={handleToolOpen} />
           </div>
+        ) : (
+          <div className="transition-opacity duration-500">
+            <CountdownTimer targetDate={eventDate} /> 
+          </div>
         )}
-
-        <div className={`${isToolVisible ? 'hidden opacity-0 pointer-events-none' : ''} transition-opacity duration-500`}>
-           <CountdownTimer targetDate={eventDate} /> 
-        </div>
       </div>
     </div>
   );
