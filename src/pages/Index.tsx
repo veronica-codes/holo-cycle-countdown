@@ -12,7 +12,7 @@ const Index = () => {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+    <div className="h-screen bg-gradient-to-br from-green-100 via-emerald-100 to-teal-100">
       <div className="header bg-white/50 backdrop-blur-sm">
         <div className="flex justify-center items-center">
           <h1 className="text-5xl">Bike Mechanics ✨ SITW</h1>
