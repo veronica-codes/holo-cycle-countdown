@@ -13,9 +13,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-red-200 via-yellow-200 via-green-200 via-blue-200 to-purple-200">
-      <div className="header bg-white/50 backdrop-blur-sm">
+      <div className="header bg-white/50 backdrop-blur-sm p-4">
         <div className="flex justify-center items-center">
-          <h1 className="text-5xl">Bike Mechanics SITW</h1>
+          <h1 className="text-5xl font-bold">Bike Mechanics SITW</h1>
         </div>
         <div className="subtitle">JUNE 6 2025</div>
       </div>
