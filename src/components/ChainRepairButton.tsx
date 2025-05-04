@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const ChainRepairButton = () => {
   return (
-    <Button variant="outline" className="bg-gray-100 hover:bg-gray-200">
+    <Button variant="outline" className="bg-gray-100">
       Chain Repair
     </Button>
   );
