@@ -26,8 +26,8 @@ jobs:
       run: |
         npm install --only=prod
 
-    - name: Install webpack-cli
-      run: npm install -D webpack-cli
+    - name: Install webpack and webpack-cli
+      run: npm install webpack webpack-cli
 
     - name: Build
       run: |
