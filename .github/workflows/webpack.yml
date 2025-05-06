@@ -26,4 +26,4 @@ jobs:
       run: |
         --env.NODE_ENV=production
         npm install
-        npx webpack
+        npx webpack --no-interactive
