@@ -31,3 +31,20 @@ jobs:
     - name: Run webpack build
       run: |
         npx --no-install webpack --config webpack.config.js --mode=production
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: $
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
