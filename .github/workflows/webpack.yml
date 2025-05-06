@@ -33,4 +33,4 @@ jobs:
 
     - name: Build with webpack
       run: |
-        npx webpack --mode=production
+        npx webpack --config webpack.config.js --mode=production
