@@ -25,13 +25,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm install
-        npm install webpack webpack-cli --save-dev
+        npm ci
+        npm install webpack webpack-cli --no-audit --no-fund
 
-    - name: Run security audit
+    - name: Run webpack build
       run: |
-        npm audit || true
-
-    - name: Build with webpack
-      run: |
-        npx webpack --config webpack.config.js --mode=production
+        npx --no-install webpack --config webpack.config.js --mode=production
