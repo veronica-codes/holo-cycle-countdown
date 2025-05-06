@@ -21,14 +21,16 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
     - name: Install dependencies
       run: |
-        npm install --only=prod
-
-    - name: Install webpack and webpack-cli
-      run: npm install webpack webpack-cli
-
-    - name: Build
+        npm install
+        
+    - name: Run security audit (no fix)
       run: |
-        npx webpack-cli
+        npm audit || true
+
+    - name: Build with webpack
+      run: |
+        npx webpack --mode=production
