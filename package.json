@@ -6,11 +6,9 @@
   "homepage": "https://<your-github-username>.github.io/<your-repo-name>",
   "scripts": {
     "dev": "vite",
-    "build": "webpack --mode production",
-    "build:dev": "vite build --mode development",
+    "build": "tsc && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "start": "webpack serve --open"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
