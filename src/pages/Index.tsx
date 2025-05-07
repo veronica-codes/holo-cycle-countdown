@@ -13,20 +13,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#d2f3db] to-[#d3e4fd]">
-      <div className="header bg-white/50 backdrop-blur-sm">
+      <div className="header bg-white/50 backdrop-blur-sm border-b border-neutral-200">
         <div className="flex justify-center items-center">
-          <h1 className="text-5xl">Bike Mechanics SITW</h1>
+          <h1 className="text-4xl md:text-5xl font-dancing-script">Bike Mechanics SITW</h1>
         </div>
         <div className="subtitle">JUNE 6 2025</div>
       </div>
 
-      <div className="container mx-auto mt-10 px-4">
+      <div className="container mx-auto px-4 py-10 max-w-4xl">
         {isToolVisible ? (
-          <div className="mt-10">
+          <div className="mt-10 flex justify-center">
             <BicycleTool onOpen={handleToolOpen} />
           </div>
         ) : (
-          <div className="transition-opacity duration-500">
+          <div className="transition-opacity duration-500 animate-fade-in">
             <CountdownTimer targetDate={eventDate} /> 
           </div>
         )}
