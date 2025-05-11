@@ -4,11 +4,11 @@ import CountdownTimer from '../components/CountdownTimer';
 import BicycleTool from '../components/BicycleTool';
 
 const Index = () => {
-  const [isToolVisible, setIsToolVisible] = useState(false);
+  const [isToolVisible, setIsToolVisible] = useState(false); // Changed initial state to false
   const eventDate = new Date("June 6, 2025 08:00:00");
 
   const handleToolOpen = () => {
-    setIsToolVisible(true);
+    setIsToolVisible(true); // Changed to set to true when tool opens
   };
 
   return (
@@ -17,21 +17,13 @@ const Index = () => {
         <div className="flex justify-center items-center">
           <h1 className="text-5xl font-bold">Bike Mechanics SITW</h1>
         </div>
-        <div className="subtitle text-center text-lg font-medium">JUNE 6 2025</div>
+        <div className="subtitle">JUNE 6 2025</div>
       </div>
 
       <div className="container mx-auto mt-10 px-4">
         {!isToolVisible ? (
-          <div className="mt-10 opacity-100 transition-opacity duration-500">
+          <div className="mt-10">
             <CountdownTimer targetDate={eventDate} />
-            <div className="flex justify-center mt-8">
-              <button 
-                className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
-                onClick={handleToolOpen}
-              >
-                Open Bicycle Tool
-              </button>
-            </div>
           </div>
         ) : (
           <div className="transition-opacity duration-500">
