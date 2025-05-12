@@ -17,7 +17,7 @@ const Index = () => {
         <div className="flex justify-center items-center">
           <h1 className="text-5xl">Bike Mechanics</h1>
         </div>
-        <div className="subtitle">JUNE 6 2025</div>
+        <div className="subtitle">JUNE 6 2025 • SITW</div>
       </div>
 
       <div className="mt-10">
