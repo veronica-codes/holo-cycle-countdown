@@ -1,14 +1,19 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CountdownTimer from '../components/CountdownTimer';
 import BicycleTool from '../components/BicycleTool';
 
 const Index = () => {
-  const [isToolVisible, setIsToolVisible] = useState(false); // Changed initial state to false
+  const [isToolVisible, setIsToolVisible] = useState(false);
   const eventDate = new Date("June 6, 2025 08:00:00");
+  
+  useEffect(() => {
+    console.log("Index page mounted");
+  }, []);
 
   const handleToolOpen = () => {
-    setIsToolVisible(true); // Changed to set to true when tool opens
+    setIsToolVisible(true);
+    console.log("Tool opened, isToolVisible set to true");
   };
 
   return (
