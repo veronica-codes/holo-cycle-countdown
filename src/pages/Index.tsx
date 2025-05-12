@@ -1,40 +1,38 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CountdownTimer from '../components/CountdownTimer';
 import BicycleTool from '../components/BicycleTool';
+import { Flower } from 'lucide-react';
 
 const Index = () => {
-  const [isToolVisible, setIsToolVisible] = useState(false);
+  const [isToolVisible, setIsToolVisible] = useState(true);
   const eventDate = new Date("June 6, 2025 08:00:00");
-  
-  useEffect(() => {
-    console.log("Index page mounted");
-  }, []);
 
   const handleToolOpen = () => {
-    setIsToolVisible(true);
-    console.log("Tool opened, isToolVisible set to true");
+    setIsToolVisible(false);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-red-200 via-yellow-200 via-green-200 via-blue-200 to-purple-200">
-      <div className="header bg-white/50 backdrop-blur-sm p-4">
-        <div className="flex justify-center items-center">
-          <h1 className="text-5xl font-bold">Bike Mechanics SITW</h1>
+    <div className="h-screen bg-gradient-to-b from-pink-50 via-white to-pink-50">
+      <div className="header bg-gradient-to-r from-pink-50 to-white">
+        <div className="flex justify-center items-center gap-3">
+          <Flower className="text-pink-400 w-8 h-8" />
+          <h1 className="text-5xl">✨ Bike Mechanics X SITW ✨</h1>
+          <Flower className="text-pink-400 w-8 h-8" />
         </div>
         <div className="subtitle">JUNE 6 2025</div>
       </div>
 
-      <div className="container mx-auto mt-10 px-4">
-        {!isToolVisible ? (
-          <div className="mt-10">
-            <CountdownTimer targetDate={eventDate} />
-          </div>
-        ) : (
-          <div className="transition-opacity duration-500">
+      <div className="mt-10">
+        {isToolVisible && (
+          <div className="mt-30">
             <BicycleTool onOpen={handleToolOpen} />
           </div>
         )}
+
+        <div className={`${isToolVisible ? 'hidden opacity-0 pointer-events-none' : ''} transition-opacity duration-500`}>
+           <CountdownTimer targetDate={eventDate} /> 
+        </div>
       </div>
     </div>
   );
