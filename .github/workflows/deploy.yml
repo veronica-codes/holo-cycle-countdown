@@ -1,0 +1,34 @@
+# filepath: .github/workflows/deploy.yml
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - uses: actions/checkout@v3
+      
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci
+        
+      # Step 4: Build the project
+      - name: Build
+        run: npm run build
+        
+      # Step 5: Deploy to GitHub Pages (optional)
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # The folder containing your built files
