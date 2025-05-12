@@ -41,8 +41,8 @@ const BicycleTool = ({ onOpen }: { onOpen: () => void }) => {
                   {/* Logo and product name */}
                   <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
                     <Wrench className="h-4 w-4 text-zinc-400 mx-1" />
-                    <span className="text-xs font-thin text-zinc-300">
-                      OPEN BIKE MULTI-TOOL
+                    <span className="text-xs text-nowrap font-bold text-zinc-300 text-center">
+                      BIKE MULTI-TOOL
                     </span>
                   </div>
                 </div>
